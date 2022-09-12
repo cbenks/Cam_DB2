@@ -3,6 +3,7 @@ const controller = require('../controllers/nft')
 const middleware = require('../middleware')
 
 Router.get('/all', controller.findAllNfts)
+Router.get('/:userId', controller.findNftsByUser)
 Router.post(
   '/',
   middleware.stripToken,

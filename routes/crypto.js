@@ -3,6 +3,7 @@ const controller = require('../controllers/crypto')
 const middleware = require('../middleware')
 
 Router.get('/all', controller.findAllCryptos)
+Router.get('/:userId', controller.findCryptosByUser)
 Router.post(
   '/',
   middleware.stripToken,
