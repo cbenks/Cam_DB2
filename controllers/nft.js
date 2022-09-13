@@ -13,8 +13,7 @@ const findNftsByUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.userId)
     let nfts = await Nft.findAll({
-      where: { userId: userId },
-      include: [{ model: User }]
+      where: { userId: userId }
     })
     res.send(nfts)
   } catch (error) {
