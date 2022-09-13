@@ -14,7 +14,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Crypto.init(
     {
-      userId: DataTypes.INTEGER,
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
       amount: DataTypes.INTEGER,
       name: DataTypes.STRING
     },

@@ -14,7 +14,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Nft.init(
     {
-      userId: DataTypes.INTEGER,
+      userId: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
       blockchain: DataTypes.STRING,
       name: DataTypes.STRING,
       photo: DataTypes.STRING

@@ -13,7 +13,8 @@ const findCryptosByUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.userId)
     let cryptos = await Crypto.findAll({
-      where: { userId: userId }
+      where: { userId: userId },
+      include: [{ model: User }]
     })
     res.send(cryptos)
   } catch (error) {
